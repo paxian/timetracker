@@ -41,6 +41,35 @@
       }
     }
 
+    // Use a PUT request to save the updated data passed to.
+    function updateTime(data) {
+      return Time.update({id:data.id}, data).$promise.then(function(success){
+        console.log(success);
+      }, function(error) {
+        console.log(error);
+      });
+    }
+
+
+    // Grab data passed from the view and send a POST request to the API to
+    // save the data.
+    function saveTime(data) {
+      return Time.save(data).$promise.then(function(success) {
+        console.log(success);
+      }, function(error) {
+          console.log(error);
+      });
+    }
+
+    // Send a DELETE request for a specific time entry.
+    function deleteTime(id) {
+      return Time.delete({id:id}).$promise.then(function(success){
+        console.log(success);
+      }, function(error) {
+        console.log(error);
+      });
+    }
+
     // Add up the total time for all of our time entries
     function getTotalTime(timeentries) {
       var totalMilliseconds = 0;
@@ -62,7 +91,10 @@
     return {
       getTime: getTime,
       getTimeDiff: getTimeDiff,
-      getTotalTime: getTotalTime
+      getTotalTime: getTotalTime,
+      saveTime: saveTime,
+      updateTime: updateTime,
+      deleteTime: deleteTime
     }
   }
 

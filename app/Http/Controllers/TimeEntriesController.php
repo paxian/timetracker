@@ -40,7 +40,13 @@ class TimeEntriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = Request::all();
+
+        $timeentry = new TimeEntry();
+
+        $timeentry->fill($data);
+
+        $timeentry->save();
     }
 
     /**
@@ -66,25 +72,32 @@ class TimeEntriesController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Grab all the data passed into the request and fill the database record with the new data.
      *
-     * @param  Request  $request
      * @param  int  $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        //
+        $timeentry = TimeEntry::find($id);
+
+        $data = Request::all();
+
+        $timeentry->fill($data);
+
+        $timeentry->save();
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Find the time entry to be deleted and then call delete.
      *
      * @param  int  $id
      * @return Response
      */
     public function destroy($id)
     {
-        //
+        $timeentry = TimeEntry::find($id);
+
+        $timeentry->delete();
     }
 }
