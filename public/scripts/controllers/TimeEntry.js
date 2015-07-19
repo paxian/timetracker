@@ -77,7 +77,7 @@
 
       // Call to the saveTime method on the time service
       // to save the new time entry to the database.
-      vm.saveTime({
+      time.saveTime({
         "user_id": vm.timeEntryUser.id,
         "start_time": vm.clockIn,
         "end_time": vm.clockOut,
