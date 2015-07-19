@@ -83,9 +83,9 @@
 
             <div class="col-sm-6">
               <h5>User</h5>
-              <selec name="user" class="form-control" ng-model="time.user" ng-options="user.first_name + ' ' + user.last_name for user in vm.users track by user.id">
+              <select name="user" class="form-control" ng-model="time.user" ng-options="user.first_name + ' ' + user.last_name for user in vm.users track by user.id">
                 <option value="user.id"></option>
-              </selec>
+              </select>
             </div>
 
             <div class="col-sm-6">
